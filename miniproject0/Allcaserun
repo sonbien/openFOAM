@@ -1,0 +1,39 @@
+#!/bin/bash
+set -e  ## Stop whenever error
+
+baseCase="baseCase"
+L=4
+
+for case in 0 2 4 6 8
+do
+    dirid=$(($case / 2))
+    caseDir="case${dirid}"
+    rampL=$((L + case))
+    if [[ "$case" -gt 2 ]]; then
+        ramp1=$((L + 1))
+        ramp2=$((rampL - 2))
+        rampy1=$(awk "BEGIN {printf \"%.4f\", -1/$case}")
+        rampy2=$(awk "BEGIN {printf \"%.4f\", -($ramp2 - $L)/$case}")
+    fi
+
+    rm -rf "$caseDir"
+    cp -r "$baseCase" "$caseDir"
+    if [[ "$case" -lt 4 ]]; then
+        sed "s/__RAMP__/${rampL}/g" "$baseCase/system/blockMeshDict1RB" > "$caseDir/system/blockMeshDict"
+    else
+        sed \
+            -e "s/__RAMP1__/${ramp1}/g" \
+            -e "s/__RAMP2__/${ramp2}/g" \
+            -e "s/__RAMP3__/${rampL}/g" \
+            -e "s/__RAMPY1__/${rampy1}/g" \
+            -e "s/__RAMPY2__/${rampy2}/g" \
+            "$baseCase/system/blockMeshDict" > "$caseDir/system/blockMeshDict"
+    fi
+
+    (
+        cd "$caseDir"
+        echo "Case ${caseDir}!"
+        ./Allclean
+        ./Allrun
+    )
+done

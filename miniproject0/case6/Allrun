@@ -1,0 +1,14 @@
+#!/bin/sh
+cd "${0%/*}" || exit 1
+
+
+blockMesh > LOG.polyMESH
+echo "Mesh is created!"
+checkMesh > LOG.checkMesh
+echo "Mesh is checked!"
+simpleFoam > LOG.simpleFoam
+echo "Simulation is done!"
+gnuplot plot.gnu
+echo "PLotted!"
+
+echo "DONE!"

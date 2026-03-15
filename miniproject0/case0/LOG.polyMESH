@@ -1,0 +1,96 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _8dbc61e11c-20241220 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : blockMesh
+Date   : Mar 14 2026
+Time   : 19:12:47
+Host   : gwdu101
+PID    : 3324987
+I/O    : uncollated
+Case   : /user/hoaison.bien/u17786/.project/dir.project/code/openFOAM_tut/miniproject0/case0
+nProcs : 1
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Creating block mesh from "system/blockMeshDict"
+No non-linear block edges defined
+No non-planar block faces defined
+Creating topology blocks
+
+Creating topology patches - from boundary section
+
+Creating block mesh topology
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 2
+		Number of boundary faces : 14
+		Number of defined boundary faces : 14
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list (topological search)...
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale (1 1 1)
+    Block 0 cell size :
+        i : 0.0658538 .. 0.0219491
+        j : 0.0224437 .. 0.0224423
+        k : 0.1 .. 0.1
+
+    Block 1 cell size :
+        i : 0.021965 .. 0.065895
+        j : 0.0224437 .. 0.0224423
+        k : 0.1 .. 0.1
+
+    Block 2 cell size :
+        i : 0.021965 .. 0.065895
+        j : 0.0224437 .. 0.0224423
+        k : 0.1 .. 0.1
+
+Adding cell zones
+    0	b4expansion
+    1	aftexpansion1
+    2	aftexpansion2
+No patch pairs to merge
+
+Writing polyMesh with 3 cellZones
+----------------
+Mesh Information
+----------------
+  boundingBox: (0 -1 0) (16 1 0.1)
+  nPoints: 35902
+  nCells: 17500
+  nFaces: 70450
+  nInternalFaces: 34550
+----------------
+Cell Zones
+----------------
+  zone 0 (size: 2500) name: b4expansion
+  zone 1 (size: 7500) name: aftexpansion1
+  zone 2 (size: 7500) name: aftexpansion2
+----------------
+Patches
+----------------
+  patch 0 (start: 34550 size: 400) name: wallL
+  patch 1 (start: 34950 size: 400) name: wallR
+  patch 2 (start: 35350 size: 25) name: wallExpansion
+  patch 3 (start: 35375 size: 25) name: inlet
+  patch 4 (start: 35400 size: 50) name: outlet
+  patch 5 (start: 35450 size: 35000) name: twoD
+
+End
+

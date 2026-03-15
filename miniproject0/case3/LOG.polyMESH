@@ -1,0 +1,142 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _8dbc61e11c-20241220 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : blockMesh
+Date   : Mar 14 2026
+Time   : 19:17:27
+Host   : gwdu101
+PID    : 3375764
+I/O    : uncollated
+Case   : /user/hoaison.bien/u17786/.project/dir.project/code/openFOAM_tut/miniproject0/case3
+nProcs : 1
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Creating block mesh from "system/blockMeshDict"
+No non-linear block edges defined
+No non-planar block faces defined
+Creating topology blocks
+
+Creating topology patches - from boundary section
+
+Creating block mesh topology
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 11
+		Number of boundary faces : 32
+		Number of defined boundary faces : 32
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+
+Detected collapsed blocks - using merge points instead of merge topology
+
+Creating block offsets
+Creating merge list (geometric search)....
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale (1 1 1)
+    Block 0 cell size :
+        i : 0.0658538 .. 0.0219491
+        j : 0.0224437 .. 0.0224423
+        k : 0.1 .. 0.1
+
+    Block 1 cell size :
+        i : 0.0224437 .. 0.0394737
+        j : 0.0224437 .. 0.0224423
+        k : 0.1 .. 0.1
+
+    Block 2 cell size :
+        i : 0.024 .. 0.024
+        j : 0.0224437 .. 0.0224423
+        k : 0.1 .. 0.1
+
+    Block 3 cell size :
+        i : 0.0438878 .. 0.0146278
+        j : 0.0224437 .. 0.0224423
+        k : 0.1 .. 0.1
+
+    Block 4 cell size :
+        i : 0.0328234 .. 0.0328214
+        j : 0.0224437 .. 0.0224423
+        k : 0.1 .. 0.1
+
+    Block 5 cell size :
+        i : 0 .. 0
+        j : 0.0227534 .. 0.0400184
+        k : 0.1 .. 0.1
+
+    Block 6 cell size :
+        i : 0.0243311 .. 0.0243311
+        j : 0.00374136 .. 0.00658026
+        k : 0.1 .. 0.1
+
+    Block 7 cell size :
+        i : 0.044493 .. 0.0148295
+        j : 0.0149632 .. 0.0263171
+        k : 0.1 .. 0.1
+
+    Block 8 cell size :
+        i : 0.0328234 .. 0.0328214
+        j : 0.0224437 .. 0.0394737
+        k : 0.1 .. 0.1
+
+Adding cell zones
+    0	b4expansion
+    1	aftexpansion2
+    2	aftexpansion3
+    3	afterexpansion4
+    4	afterexpansion5
+    5	rampblock2
+    6	rampblock3
+    7	rampblock4
+    8	aftexpansion6
+No patch pairs to merge
+
+Writing polyMesh with 9 cellZones
+----------------
+Mesh Information
+----------------
+  boundingBox: (0 -1 0) (16 1 0.1)
+  nPoints: 38402
+  nCells: 18750
+  nFaces: 75450
+  nInternalFaces: 37025
+----------------
+Cell Zones
+----------------
+  zone 0 (size: 2500) name: b4expansion
+  zone 1 (size: 625) name: aftexpansion2
+  zone 2 (size: 3125) name: aftexpansion3
+  zone 3 (size: 1875) name: afterexpansion4
+  zone 4 (size: 2500) name: afterexpansion5
+  zone 5 (size: 625) name: rampblock2
+  zone 6 (size: 3125) name: rampblock3
+  zone 7 (size: 1875) name: rampblock4
+  zone 8 (size: 2500) name: aftexpansion6
+----------------
+Patches
+----------------
+  patch 0 (start: 37025 size: 425) name: wallL
+  patch 1 (start: 37450 size: 200) name: wallR
+  patch 2 (start: 37650 size: 225) name: wallExpansion
+  patch 3 (start: 37875 size: 25) name: inlet
+  patch 4 (start: 37900 size: 50) name: outlet
+  patch 5 (start: 37950 size: 37500) name: twoD
+  patch 6 (start: 75450 size: 0) name: collapsedFaces
+
+End
+
