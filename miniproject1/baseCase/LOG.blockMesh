@@ -1,0 +1,81 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _8dbc61e11c-20241220 OPENFOAM=2412 version=v2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : blockMesh
+Date   : Mar 18 2026
+Time   : 13:21:07
+Host   : gfn1005
+PID    : 1116318
+I/O    : uncollated
+Case   : /user/hoaison.bien/u17786/.project/dir.project/code/openFOAM_tut/miniproject1/baseCase
+nProcs : 1
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Creating block mesh from "system/blockMeshDict"
+No non-linear block edges defined
+No non-planar block faces defined
+Creating topology blocks
+
+Creating topology patches - from boundary section
+
+Creating block mesh topology
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 0
+		Number of boundary faces : 6
+		Number of defined boundary faces : 6
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list (topological search)...
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale (1 1 1)
+    Block 0 cell size :
+        i : 0.0957 .. 0.0957
+        j : 0.0907667 .. 0.0907667
+        k : 0.07195 .. 0.07195
+
+Adding cell zones
+    0	outerbox
+No patch pairs to merge
+
+Writing polyMesh with 1 cellZones
+----------------
+Mesh Information
+----------------
+  boundingBox: (-8.343 -1.167 -0.569) (3.141 1.556 0.87)
+  nPoints: 78771
+  nCells: 72000
+  nFaces: 222600
+  nInternalFaces: 209400
+----------------
+Cell Zones
+----------------
+  zone 0 (size: 72000) name: outerbox
+----------------
+Patches
+----------------
+  patch 0 (start: 209400 size: 600) name: inlet
+  patch 1 (start: 210000 size: 600) name: outlet
+  patch 2 (start: 210600 size: 4800) name: sides
+  patch 3 (start: 215400 size: 3600) name: top
+  patch 4 (start: 219000 size: 3600) name: bottom
+
+End
+
