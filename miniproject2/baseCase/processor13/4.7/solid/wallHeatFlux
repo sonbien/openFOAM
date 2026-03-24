@@ -1,0 +1,113 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "4.7/solid";
+    object      wallHeatFlux;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    bodyBottom
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+25
+(
+113137
+113272
+113587
+114199
+115508
+112035
+112129
+112349
+112755
+113536
+111413
+111480
+111638
+111925
+112478
+111017
+111068
+111189
+111410
+111841
+110769
+110812
+110916
+111114
+111542
+)
+;
+    }
+    solid_to_fluid
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+22
+(
+-1282.29
+-1318.16
+-1390.53
+-1515.36
+-1802.63
+-1664.6
+-1721.88
+-1853.05
+-2097.98
+-2395.02
+-1748.54
+-890.884
+-715.613
+-543.385
+-619.985
+-2212.43
+-855.373
+-588.343
+-464.706
+-504.767
+-483.528
+-517.016
+)
+;
+    }
+    procBoundary13to2
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary13to3
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary13to9
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary13to12
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

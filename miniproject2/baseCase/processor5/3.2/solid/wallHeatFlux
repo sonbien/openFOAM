@@ -1,0 +1,109 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "3.2/solid";
+    object      wallHeatFlux;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    bodyBottom
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    solid_to_fluid
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+47
+(
+-1182.35
+-1091.65
+-1055.2
+-975.082
+-849.493
+-1068.17
+-970.797
+-921.843
+-827.313
+-694.546
+-946.693
+-852.072
+-803.194
+-710.361
+-586.3
+-826.078
+-752.505
+-724.763
+-651.072
+-545.388
+-763.651
+-736.191
+-750.336
+-706.828
+-619.472
+-632.599
+-942.486
+-612.303
+-878.337
+-600.842
+-811.209
+-626.672
+-768.863
+-691.366
+-810.569
+-694.644
+-828.816
+-555.012
+-709.487
+-501.684
+-633.931
+-395.201
+-437.835
+-575.463
+-364.134
+-377.958
+-503.898
+)
+;
+    }
+    procBoundary5to0
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary5to1
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary5to4
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary5to7
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

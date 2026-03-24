@@ -1,0 +1,100 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "2/solid";
+    object      wallHeatFlux;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    bodyBottom
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    solid_to_fluid
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+28
+(
+-1506.22
+-1529.86
+-1585.59
+-1700.13
+-1841.93
+-1393.7
+-1416.06
+-1468.96
+-1579.28
+-1714.18
+-1347.19
+-1366.77
+-1414.08
+-1514.85
+-1636.39
+-1697.49
+-654.955
+-420.579
+-364.005
+-380.711
+-1580.31
+-623.492
+-402.491
+-359.627
+-374.025
+-1505.79
+-627.993
+-376.424
+)
+;
+    }
+    procBoundary14to6
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary14to7
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary14to10
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary14to11
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary14to12
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary14to15
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

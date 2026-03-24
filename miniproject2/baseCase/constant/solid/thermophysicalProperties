@@ -1,0 +1,50 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.4.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant/solid";
+    object      thermophysicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+thermoType
+{
+
+    type            heSolidThermo;    // solid thermodynamical framework
+    mixture         pureMixture;    // for simplicity, treat solid as one averaged solid, not multiphase one
+    transport       constIso;          // thermal conductivity constant and isotropic
+    thermo          hConst;         // enthalpy is linear with temperature, or constant heat capacity
+    equationOfState rhoConst;       // solid density is constant
+    specie          specie;   
+    energy          sensibleEnthalpy;   // energy coupling with temperature exclude chemical energy
+}
+
+mixture
+{
+    specie
+    {
+        molWeight   26.98;           // aluminium's molar mass
+    }
+    thermodynamics
+    {
+        Cp          900;           //air at room temperature
+        Hf          0;              //chemical enthalpy
+    }
+    transport
+    {
+        kappa       205;         //viscosity of air at room temperature
+    }
+    equationOfState
+    {
+        rho          2700;          //since it's constant as defines above, we have to give value
+    }
+}
+// ************************************************************************* //

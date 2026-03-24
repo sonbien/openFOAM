@@ -1,0 +1,109 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "2.8/solid";
+    object      wallHeatFlux;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    bodyBottom
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    solid_to_fluid
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+47
+(
+-1139.66
+-1047.11
+-996.823
+-902.944
+-769.084
+-1020.92
+-924.495
+-864.575
+-758.602
+-619.17
+-899.52
+-807.984
+-751.026
+-648.629
+-523.675
+-782.095
+-711.982
+-677.69
+-595.817
+-486.689
+-720.573
+-694.334
+-701.945
+-651.743
+-559.504
+-608.383
+-912.995
+-583.28
+-843.024
+-568.958
+-772.901
+-592.557
+-726.763
+-649.312
+-763.339
+-652.189
+-777.545
+-521.064
+-668.293
+-470.43
+-597.429
+-367.372
+-410.274
+-540.431
+-339.6
+-353.781
+-467.37
+)
+;
+    }
+    procBoundary5to0
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary5to1
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary5to4
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary5to7
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

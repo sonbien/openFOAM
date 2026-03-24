@@ -1,0 +1,109 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "2.9/solid";
+    object      wallHeatFlux;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    bodyBottom
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    solid_to_fluid
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+47
+(
+-1161.57
+-1064.65
+-1009.03
+-913.927
+-781.764
+-1045
+-944.723
+-879.679
+-771.146
+-631.703
+-925.024
+-830.409
+-768.974
+-662.455
+-537.635
+-807.848
+-735.645
+-697.85
+-611.883
+-502.613
+-745.76
+-718.72
+-724.457
+-671.704
+-578.955
+-622.43
+-933.666
+-597.525
+-864.539
+-583.24
+-794.716
+-609.07
+-747.448
+-666.137
+-785.705
+-668.058
+-797.549
+-534.129
+-687.842
+-482.504
+-616.026
+-375.887
+-422.081
+-558.247
+-349.039
+-364.903
+-483.842
+)
+;
+    }
+    procBoundary5to0
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary5to1
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary5to4
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary5to7
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

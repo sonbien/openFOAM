@@ -1,0 +1,157 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       dictionary;
+    location    "3.2/uniform/functionObjects";
+    object      functionObjectProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+cdf7e925f5746741c316f5fbcf39ad0dfca90775
+{
+    fluidWallHeatFlux
+    {
+        scalar
+        {
+            min(fluid_to_solid) 325.6623589189314;
+            max(fluid_to_solid) 2500.704102301335;
+            int(fluid_to_solid) 2.080690376832275;
+        }
+    }
+    solidWallHeatFlux
+    {
+        scalar
+        {
+            min(bodyBottom) 235886.3076651041;
+            max(bodyBottom) 240562.9246838536;
+            int(bodyBottom) 94.74963925426775;
+            min(solid_to_fluid) -2500.741369572456;
+            max(solid_to_fluid) -325.7594243736553;
+            int(solid_to_fluid) -2.080828660525478;
+        }
+    }
+    fluidTMinMax
+    {
+        scalar
+        {
+            min(T)          292.999782822792;
+            max(T)          351.8423044453322;
+        }
+        label
+        {
+            min(T)_cell     8661;
+            min(T)_processor 3;
+            max(T)_cell     9280;
+            max(T)_processor 12;
+        }
+        vector
+        {
+            min(T)_position ( 0.134111 0.0982928 0.019 );
+            max(T)_position ( 0.091 0.05 0.001 );
+        }
+    }
+    solidTMinMax
+    {
+        scalar
+        {
+            min(T)          338.2704055985427;
+            max(T)          353;
+        }
+        label
+        {
+            min(T)_cell     58;
+            min(T)_processor 15;
+            max(T)_cell     0;
+            max(T)_processor 0;
+        }
+        vector
+        {
+            min(T)_position ( 0.08 0.06900000000000001 0.019 );
+            max(T)_position ( 0.091 0.051 0 );
+        }
+    }
+    solidTAvg
+    {
+        scalar
+        {
+            volAverage(solid,T) 343.6418290687932;
+        }
+    }
+    bodyBottomTAvg
+    {
+        scalar
+        {
+            areaAverage(bodyBottom,T) 353.0000000000001;
+        }
+    }
+    bodyBottomQ
+    {
+        scalar
+        {
+            areaIntegrate(bodyBottom,wallHeatFlux) 94.74963925426775;
+        }
+    }
+    solidInterfaceQ
+    {
+        scalar
+        {
+            areaIntegrate(solid_to_fluid,wallHeatFlux) -2.080828660525478;
+        }
+    }
+    fluidOutletTAvg
+    {
+        scalar
+        {
+            areaAverage(outlet,T) 293.1688812347303;
+        }
+    }
+    solidProbes
+    {
+        scalar
+        {
+            average(T)      343.4765874779332;
+            min(T)          343.4756613609164;
+            max(T)          343.4782507498129;
+        }
+        label
+        {
+            size(T)         3;
+        }
+    }
+    fluidProbes
+    {
+        scalar
+        {
+            average(T)      295.1553898055193;
+            min(T)          293.0001059834123;
+            max(T)          298.2223030130476;
+            average(p_rgh)  100000.0589723671;
+            min(p_rgh)      99999.85743282014;
+            max(p_rgh)      100000.3070473086;
+        }
+        label
+        {
+            size(T)         3;
+            size(p_rgh)     3;
+            size(U)         3;
+        }
+        vector
+        {
+            average(U)      ( 0.53552 -0.0405623 0.0339615 );
+            min(U)          ( -0.231092 -0.118539 0.00587443 );
+            max(U)          ( 0.9716 0.0047666 0.0786659 );
+        }
+    }
+}
+
+
+// ************************************************************************* //

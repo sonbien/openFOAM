@@ -1,0 +1,109 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "0.7/solid";
+    object      wallHeatFlux;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    bodyBottom
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    solid_to_fluid
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+47
+(
+-403.931
+-317.346
+-212.304
+-124.874
+-73.8492
+-245.493
+-169.671
+-74.2774
+-15.5485
+20.3622
+-140.721
+-80.2203
+-10.0642
+31.2123
+59.1715
+-87.0999
+-42.777
+3.41402
+36.2904
+60.2244
+-80.8254
+-50.7163
+-17.1857
+14.0912
+39.2512
+-215.227
+-354.146
+-155.57
+-238.913
+-119.396
+-161.643
+-106.369
+-122.814
+-108.735
+-122.094
+-126.242
+-136.568
+-103.145
+-114.289
+-87.3017
+-89.3449
+-72.0882
+-68.8911
+-58.7739
+-57.7041
+-49.629
+-30.8749
+)
+;
+    }
+    procBoundary5to0
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary5to1
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary5to4
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary5to7
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

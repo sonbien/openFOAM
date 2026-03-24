@@ -1,0 +1,7 @@
+#!/bin/bash
+
+awk '!/^#/ {print $1, $2}' postProcessing/fluid/pInlet/0/surfaceFieldValue.dat  > pin.dat
+awk '!/^#/ {print $1, $2}' postProcessing/fluid/pOutlet/0/surfaceFieldValue.dat > pout.dat
+awk '!/^#/ {print $1, $8}' postProcessing/solid/solidTMinMax/0/fieldMinMax.dat > Tmax.dat
+
+paste pin.dat pout.dat Tmax.dat | awk '{print $1, $2-$4, $6}' > dp_Tmax.dat

@@ -1,0 +1,113 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "0.5/solid";
+    object      wallHeatFlux;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    bodyBottom
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+12
+(
+1.07824e+06
+1.07726e+06
+1.07656e+06
+1.07604e+06
+1.07585e+06
+1.07554e+06
+1.07553e+06
+1.07529e+06
+1.07541e+06
+1.07556e+06
+1.07529e+06
+1.0754e+06
+)
+;
+    }
+    solid_to_fluid
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+35
+(
+-1879.96
+-1660.47
+-1945.66
+-1760.15
+-1663.43
+-1547.68
+-1274.8
+-1190.65
+-924.498
+-859.025
+-1795.56
+-958.795
+-785.44
+-600.446
+-696.746
+-1796.8
+-720.72
+-450.918
+-319.705
+-359.809
+-1532.38
+-627.051
+-315.044
+-211.993
+-226.386
+-1175.55
+-459.754
+-231.009
+-156.207
+-153.926
+-852.304
+-316.264
+-173.354
+-122.609
+-118.619
+)
+;
+    }
+    procBoundary8to0
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary8to9
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary8to10
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary8to11
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

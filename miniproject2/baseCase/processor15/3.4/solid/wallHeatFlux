@@ -1,0 +1,114 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "3.4/solid";
+    object      wallHeatFlux;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    bodyBottom
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    solid_to_fluid
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+47
+(
+-1956.15
+-1977.9
+-2030.94
+-2145.71
+-2282.14
+-2122.57
+-2137.44
+-2175.42
+-2260.44
+-2359.44
+-459.197
+-467.905
+-2089.63
+-1030.7
+-534.93
+-472.148
+-460.854
+-2158.85
+-1461.87
+-772.638
+-584.407
+-589.396
+-1937.59
+-608.157
+-491.478
+-412.565
+-381.854
+-1951.46
+-659.599
+-461.434
+-374.405
+-360.569
+-1983.5
+-732.572
+-425.715
+-334.739
+-338.823
+-2049.94
+-932.796
+-508.714
+-423.491
+-426.116
+-2143.38
+-1423.88
+-806.257
+-688.285
+-670.575
+)
+;
+    }
+    procBoundary15to6
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary15to7
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary15to10
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary15to11
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary15to14
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

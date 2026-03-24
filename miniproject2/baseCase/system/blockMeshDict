@@ -1,0 +1,207 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+scale   1.0;
+
+vertices
+(
+    (0 0 0)     //0
+    (0.3 0 0)     //1
+    (0.3 0.12 0)     //2
+    (0 0.12 0)     //3
+    (0 0 0.12)   //4
+    (0.3 0 0.12)   //5
+    (0.3 0.12 0.12)   //6
+    (0 0.12 0.12)   //7
+    (0.08 0.05 0)   //8
+    (0.1 0.05 0)    //9
+    (0.1 0.07 0)    //10
+    (0.08 0.07 0)   //11
+    (0.08 0.05 0.02) //12
+    (0.1 0.05 0.02) //13
+    (0.1 0.07 0.02) //14
+    (0.08 0.07 0.02) //15
+
+    //cutting points of 8
+    (0.08 0 0)  //16
+    (0 0.05 0)  //17
+
+    //cutting points of 9
+    (0.1 0 0)   //18
+    (0.3 0.05 0)    //19
+
+    //cutting points of 10
+    (0.3 0.07 0)    //20
+    (0.1 0.12 0)    //21
+
+    //cutting points of 11
+    (0 0.07 0)      //22
+    (0.08 0.12 0)   //23
+
+    //cutting points of 12
+    (0.08 0 0.02)   //24
+    (0 0.05 0.02)   //25
+    (0.08 0.05 0.12) //26
+
+    //cutting points of 13
+    (0.1 0 0.02)    //27
+    (0.3 0.05 0.02) //28
+    (0.1 0.05 0.12) //29
+
+    //cutting points of 14
+    (0.1 0.12 0.02) //30
+    (0.3 0.07 0.02) //31
+    (0.1 0.07 0.12) //32
+
+    //cutting points of 15
+    (0.08 0.12 0.02)    //33
+    (0 0.07 0.02)   //34
+    (0.08 0.07 0.12)    //35
+
+    //cutting points of 26
+    (0 0.05 0.12)   //36
+    (0.08 0 0.12)   //37
+
+    //cutting points of 29
+    (0.1 0 0.12)    //38
+    (0.3 0.05 0.12) //39
+
+    //cutting points of 32
+    (0.3 0.07 0.12) //40
+    (0.1 0.12 0.12) //41
+
+    //cutting points of 35
+    (0.08 0.12 0.12)    //42
+    (0 0.07 0.12)   //43
+
+    //cutting point at column 04
+    (0 0 0.02)  //44
+
+    //cutting point at column 15
+    (0.3 0 0.02)    //45
+
+    //cutting point at column 26
+    (0.3 0.12 0.02) //46
+
+    //cutting point at column 37
+    (0 0.12 0.02)   //47
+);
+
+blocks
+(
+    hex (0 16 8 17 44 24 12 25) fluid (40 25 10) simpleGrading (0.2 0.2 1)   //flb
+    hex (17 8 11 22 25 12 15 34) fluid (40 10 10) simpleGrading (0.2 1 1)   //fmb
+    hex (22 11 23 3 34 15 33 47) fluid (40 25 10) simpleGrading (0.2 5 1)  //frb
+    hex (11 10 21 23 15 14 30 33) fluid (10 25 10) simpleGrading (1 5 1)    //mrb
+    hex (10 20 2 21 14 31 46 30) fluid (100 25 10) simpleGrading (5 5 1)  //brb
+    hex (9 19 20 10 13 28 31 14) fluid (100 10 10) simpleGrading (5 1 1) //bmb
+    hex (18 1 19 9 27 45 28 13) fluid (100 25 10) simpleGrading (5 0.2 1)  //blb
+    hex (16 18 9 8 24 27 13 12) fluid (10 25 10) simpleGrading (1 0.2 1) //mlb
+    hex (44 24 12 25 4 37 26 36) fluid (40 25 50) simpleGrading (0.2 0.2 5)  //flt
+    hex (25 12 15 34 36 26 35 43) fluid (40 10 50) simpleGrading (0.2 1 5) //fmt
+    hex (34 15 33 47 43 35 42 7) fluid (40 25 50) simpleGrading (0.2 5 5)   //frt
+    hex (15 14 30 33 35 32 41 42) fluid (10 25 50) simpleGrading (1 5 5)   //mrt
+    hex (14 31 46 30 32 40 6 41) fluid (100 25 50) simpleGrading (5 5 5)     //brt
+    hex (13 28 31 14 29 39 40 32) fluid (100 10 50) simpleGrading (5 1 5)   //bmt
+    hex (27 45 28 13 38 5 39 29) fluid (100 25 50) simpleGrading (5 0.2 5)    //blt
+    hex (24 27 13 12 37 38 29 26) fluid (10 25 50) simpleGrading (1 0.2 5)  //mlt
+    hex (12 13 14 15 26 29 32 35) fluid (10 10 50) simpleGrading (1 1 5)           //mmm
+    hex (8 9 10 11 12 13 14 15) solid (10 10 10) simpleGrading (1 1 1)  //inside
+);
+
+boundary
+(
+    inlet
+    {
+        type patch;
+        faces
+        (
+            (0 44 25 17)   //flb
+            (17 25 34 22)   //fmb
+            (22 34 47 3)    //frb
+            (44 4 36 25)    //flt
+            (25 36 43 34)   //fmt
+            (34 43 7 47)    //frt
+        );
+    }
+    outlet
+    {
+        type patch;
+        faces
+        (
+            (1 19 28 45)    //blb
+            (19 20 31 28)   //bmb
+            (20 2 46 31)    //brb
+            (45 28 39 5)    //blt
+            (28 31 40 39)   //bmt
+            (31 46 6 40)    //brt
+        );
+    }
+    walls
+    {
+        type wall;
+        faces
+        (
+            // left wall
+            (0 16 24 44)   //flb
+            (16 18 27 24)   //mlb
+            (18 1 45 27)    //blb
+            (44 24 37 4)    //flt
+            (24 27 38 37)   //mlt
+            (27 45 5 38)    //blt
+
+            //right wall
+            (23 3 47 33)    //frb
+            (21 23 33 30)   //mrb
+            (2 21 30 46)    //brb
+            (33 47 7 42)    //frt
+            (30 33 42 41)   //mrt
+            (46 30 41 6)    //brt
+
+            //top wall
+            (26 36 4 37)    //flt
+            (35 43 36 26)   //fmt
+            (7 43 35 42)    //frt
+            (42 35 32 41)   //mrt
+            (41 32 40 6)    //blt
+            (32 29 39 40)   //bmt
+            (29 38 5 39)    //blt
+            (29 26 37 38)   //mlt
+            (32 35 26 29)   //m
+
+            //bottom wall
+            (0 17 8 16)     //flb
+            (17 22 11 8)    //fmb
+            (22 3 23 11)    //frb
+            (11 23 21 10)   //mrb
+            (10 21 2 20)    //blb
+            (9 10 20 19)    //bmb
+            (18 9 19 1)     //brb
+            (9 8 16 18)     //mlb
+        );
+    }
+    bodyBottom
+    {
+        type wall;
+        faces
+        (
+            (11 10 9 8)     //inside
+        );
+    }
+);
+
+
+// ************************************************************************* //

@@ -1,0 +1,47 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.4.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant/fluid";
+    object      thermophysicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+thermoType
+{
+
+    type            heRhoThermo;    // since density changes with temperature, use density-based thermodynamical framework
+    mixture         pureMixture;    // for simplicity, treat fluid as one averaged fluid, not multiphase one
+    transport       const;          // viscosity, thermal conductivity, diffusivity constant
+    thermo          hConst;         // enthalpy is linear with temperature
+    equationOfState perfectGas;    
+    specie          specie;   
+    energy          sensibleEnthalpy;   // energy coupling with temperature exclude chemical energy
+}
+
+mixture
+{
+    specie
+    {
+        molWeight   28.9;           // dry air's molar mass
+    }
+    thermodynamics
+    {
+        Cp          1001;           //air at room temperature
+        Hf          0;              //chemical enthalpy
+    }
+    transport
+    {
+        mu          1.73e-5;        //viscosity of air at room temperature
+        Pr          0.7;            //Prantl number near room temp
+    }
+}
+// ************************************************************************* //

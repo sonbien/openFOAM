@@ -1,0 +1,147 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "4.6/fluid";
+    object      wallHeatFlux;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    inlet
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    outlet
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    walls
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    fluid_to_solid
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+70
+(
+1807.11
+1518.4
+1393.75
+1321.24
+1284.53
+1282.98
+1318.78
+2395.69
+2099.23
+1854.94
+1723.77
+1664.63
+1662.78
+1719.64
+2624.63
+2396.89
+2204.69
+2102.12
+2056.07
+2053.75
+2099.24
+2637.44
+2434.09
+2266.88
+2181.67
+2144.58
+2142.84
+2179.73
+2601.41
+2404.32
+2245.17
+2166.23
+2132
+2130.54
+2164.7
+2547.74
+2348.45
+2187.51
+2108.87
+2074.73
+2073.37
+2107.53
+2507.82
+2310.41
+2149.39
+2072.11
+2038.77
+2037.49
+2070.87
+2507.24
+2323.59
+2172.13
+2101.25
+2071.37
+2070.3
+2100.28
+2567.4
+2414.28
+2285.84
+2226.62
+2202.11
+2201.44
+2226.21
+2663.03
+2551.58
+2456.25
+2413.89
+2397.25
+2396.99
+2414.06
+)
+;
+    }
+    procBoundary9to8
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary9to11
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary9to12
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary9to13
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary9to14
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,113 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "0.4/solid";
+    object      wallHeatFlux;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    bodyBottom
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+12
+(
+1.2069e+06
+1.206e+06
+1.20525e+06
+1.20481e+06
+1.20459e+06
+1.20436e+06
+1.20433e+06
+1.20414e+06
+1.20437e+06
+1.20443e+06
+1.20421e+06
+1.2044e+06
+)
+;
+    }
+    solid_to_fluid
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+35
+(
+-1889.1
+-1677.37
+-1885.5
+-1712.88
+-1545.93
+-1442.22
+-1127.35
+-1054.85
+-769.87
+-715.924
+-1802.38
+-971.104
+-799.923
+-611.445
+-710.577
+-1742.3
+-709.081
+-440.697
+-307.436
+-346.794
+-1425.77
+-589.652
+-292.793
+-194.078
+-209.712
+-1040.67
+-410.04
+-204.572
+-135.631
+-136.689
+-710.356
+-262.748
+-142.837
+-100.483
+-100.028
+)
+;
+    }
+    procBoundary8to0
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary8to9
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary8to10
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary8to11
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

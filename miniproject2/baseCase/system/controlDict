@@ -1,0 +1,249 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2306                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     chtMultiRegionFoam;
+
+startFrom       startTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         5;
+
+deltaT          1e-4;
+
+writeControl    adjustableRunTime;  //timeStep;  //adjustableRunTime;
+
+writeInterval   0.1;
+
+purgeWrite      0;
+writeFormat     ascii;
+writePresicion  6;
+writeCompression off;
+
+timeFormat      general;
+timeprecision   6;
+
+adjustTimeStep yes;
+maxCo           0.5;
+maxDi           10;     // Diffusion number
+
+/* functions
+{
+    mag
+    {
+        type            mag;
+        libs            (fieldFunctionObjects);
+        field           U;
+        writeControl    outputTime;
+    }
+} */
+
+functions
+{
+    fluidTMinMax
+    {
+        type            fieldMinMax;
+        libs            (fieldFunctionObjects);
+        region          fluid;
+        fields          (T);
+        location        yes;
+        executeControl    timeStep;
+        executeInterval   1;
+        writeControl    writeTime;
+        log             yes;
+    }
+
+    solidTMinMax
+    {
+        type            fieldMinMax;
+        libs            (fieldFunctionObjects);
+        region          solid;
+        fields          (T);
+        location        yes;
+        executeControl    timeStep;
+        executeInterval   1;
+        writeControl    writeTime;
+        log             yes;
+    }
+    
+    solidTAvg
+    {
+        type            volFieldValue;
+        libs            (fieldFunctionObjects);
+        region          solid;
+        select          all;
+        operation       volAverage;
+        fields          (T);
+        writeFields     false;
+        executeControl    timeStep;
+        executeInterval   1;
+        writeControl    writeTime;
+        log             yes;
+    }
+
+    fluidWallHeatFlux
+    {
+        type            wallHeatFlux;
+        libs            (fieldFunctionObjects);
+        region          fluid;
+        patches         ("fluid_to_.*");
+        executeControl    timeStep;
+        executeInterval   1;
+        writeControl    writeTime;
+        log             yes;
+    }
+
+    solidWallHeatFlux
+    {
+        type            wallHeatFlux;
+        libs            (fieldFunctionObjects);
+        region          solid;
+        patches         (bodyBottom "solid_to_.*");
+        executeControl    timeStep;
+        executeInterval   1;
+        writeControl    writeTime;
+        log             yes;
+    }
+
+    bodyBottomTAvg
+    {
+        type            surfaceFieldValue;
+        libs            (fieldFunctionObjects);
+        region          solid;
+        regionType      patch;
+        name            bodyBottom;     //name of patch inside region
+        operation       areaAverage;
+        fields          (T);
+        writeFields     false;
+        executeControl    timeStep;
+        executeInterval   1;
+        writeControl    writeTime;
+        log             yes;
+    }
+
+    bodyBottomQ
+    {
+        type            surfaceFieldValue;
+        libs            (fieldFunctionObjects);
+        region          solid;
+        regionType      patch;
+        name            bodyBottom;
+        operation       areaIntegrate;
+        fields          (wallHeatFlux);
+        writeFields     false;
+        executeControl    timeStep;
+        executeInterval   1;
+        writeControl    writeTime;
+        log             yes;
+    }
+
+    solidInterfaceQ
+    {
+        type            surfaceFieldValue;
+        libs            (fieldFunctionObjects);
+        region          solid;
+        regionType      patch;
+        name            "solid_to_fluid";
+        operation       areaIntegrate;
+        fields          (wallHeatFlux);
+        writeFields     false;
+        executeControl    timeStep;
+        executeInterval   1;
+        writeControl    writeTime;
+        log             yes;
+    }
+    
+    fluidOutletTAvg
+    {
+        type            surfaceFieldValue;
+        libs            (fieldFunctionObjects);
+        region          fluid;
+        regionType      patch;
+        name            outlet;
+        operation       areaAverage;
+        fields          (T);
+        writeFields     false;
+        executeControl    timeStep;
+        executeInterval   1;
+        writeControl    writeTime;
+        log             yes;
+    }
+    
+    solidProbes
+    {
+        type            probes;
+        libs            (sampling);
+        region          solid;
+        fields          (T);
+        executeControl    timeStep;
+        executeInterval   1;
+        writeControl    writeTime;        
+        probeLocations
+        (
+            (0.0901 0.055 0.010)
+            (0.090 0.060 0.010)
+            (0.090 0.065 0.010)
+        );
+    }
+    
+    fluidProbes
+    {
+        type            probes;
+        libs            (sampling);
+        region          fluid;
+        fields          (T U p_rgh);
+        executeControl    timeStep;
+        executeInterval   1;
+        writeControl    writeTime;
+    
+        probeLocations
+        (
+            (0.060 0.060 0.010)
+            (0.120 0.060 0.010)
+            (0.180 0.080 0.010)
+        );
+    }
+    
+    pInlet
+    {
+        type            surfaceFieldValue;
+        libs            (fieldFunctionObjects);
+        region          fluid;
+        writeFields     false;
+        regionType      patch;
+        name            inlet;
+        operation       areaAverage;
+        fields          (p);
+        writeControl    writeTime;
+        log             yes;
+    }
+                                        
+    pOutlet
+    {
+        type            surfaceFieldValue;
+        libs            (fieldFunctionObjects);
+        region          fluid;
+        writeFields     false;
+        regionType      patch;
+        name            outlet;
+        operation       areaAverage;
+        fields          (p);
+        writeControl    writeTime;
+        log             yes;
+    }   
+}

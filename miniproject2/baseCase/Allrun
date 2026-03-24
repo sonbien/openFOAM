@@ -1,0 +1,24 @@
+#!/bin/sh
+cd "${0%/*}" || exit 1
+
+
+blockMesh > LOG.blockMesh
+echo "Mesh is created!"
+checkMesh > LOG.checkMesh
+echo "Mesh is checked!"
+splitMeshRegions -cellZonesOnly -overwrite > LOG.splitMesh
+echo "Mesh is splitted!"
+checkMesh -region fluid > LOG.checkMeshFluid
+echo "Mesh of fluid region is checked!"
+checkMesh -region solid > LOG.checkMeshSolid
+echo "Mesh of solid region is checked!"
+decomposePar -allRegions > LOG.decompose
+echo "Mesh is decomposed!"
+mpirun --oversubscribe -np 8 chtMultiRegionFoam -parallel > LOG.chtFoam
+echo "Simulation is done!"
+reconstructPar -allRegions > LOG.reconstruct
+echo "Mesh is reconstructed!"
+gnuplot plot.gnu
+echo "PLotted!"
+
+echo "DONE!"
